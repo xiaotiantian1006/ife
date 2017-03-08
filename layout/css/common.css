@@ -6,14 +6,15 @@ body {
     color:#555;
     background: #fcfcfc;
 }
-h1,h2,h3,h4,ul,li{
+h1,h2,h3,h4,ul,li,p{
     margin: 0;
     padding: 0;
 }
-.header{
+.header,.footer{
 	width:100%;
 	height:60px;
 	background:#1c1c1c;
+	position:relative;
 }
 .logo{
 	width:100px;
@@ -21,9 +22,14 @@ h1,h2,h3,h4,ul,li{
 	margin:5px 10px;
 	float:left;
 }
+.nav{
+	position:absolute;
+	top:0;
+	right:0;
+}
 .h_right{
 	float:right;
-	box-sizing:border-box;
+	box-sizing:border-box;	
 }
 
 .h_right li{
@@ -46,25 +52,27 @@ h1,h2,h3,h4,ul,li{
 	padding:20px;
 	background:#cdcdcd;
 	overflow:hidden;
+	position:relative;
 }
+.container .main{margin-right:430px}
+.main img,figure img,figure{max-width:100%;height:auto}
 .left_aside{
-	margin-top:20px;
-	max-width:800px;
-	float:left;
+	margin:20px 10px;
 	padding:10px;
 	background:#fff;
-	box-shadow:1px 3px 3px  1px red;
+	box-shadow:1px 3px 3px  1px #999;
 }
+figure img{width:160px;}
 /*主体右边*/
 .right_aside{
-	float:left;
-	margin-top:20px;
-	margin-left:50px;
+    position:absolute;
+	right: 20px;
+    top: 40px;
 	width:400px;
 	height:500px;
 	padding:10px;
 	background:#fff;
-	box-shadow:1px 2px 2px  1px red;
+	box-shadow:1px 2px 2px  1px #999;
 }
 .form-horizontal{
 	margin:0 auto;
@@ -85,3 +93,44 @@ h1,h2,h3,h4,ul,li{
 		border-radius:5px;
 		border:none;background:blue;
 		color:#fff;}
+/*10 图片 */
+figure{
+	border:1px solid #999;
+	width:160px;
+	padding:10px;
+	
+	margin:10px;
+}
+/* 表格 */
+p.tableInfo {
+	margin: 0;
+	line-height: 20px;
+	text-indent: 0;
+}
+ table {
+	width: 100%;
+	font-size: 12px;
+	border-collapse: collapse;
+}
+ table thead {
+	background-color: #333;
+	color: white;
+}
+ table td {
+	border: 1px solid #eee;
+	padding: 5px;
+}
+ table tfoot {
+	background-color: #ccc;
+}
+ table tfoot td {
+	border-width: 0px;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.footer {
+	text-align:center;
+	color: white;
+	line-height:60px;
+}
