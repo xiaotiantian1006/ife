@@ -7,8 +7,71 @@
   <meta name="Keywords" content="">
   <meta name="Description" content="">
   <title>Document</title>
+	<style>
+		*{margin:0px;padding:0px;}
+		.grid-container{border:1px solid gray;padding:10px;}
+		.row:before,.row:after{content:'';display:table;clear:both;}
+		[class*='col-']{
+			box-sizing:border-box;
+			float:left;
+			margin:10px;
+			background:#eee;
+			border:1px solid #999;
+			text-align:center;
+			height:50px;
+			line-height:50px;
+		}
+		@media(max-width:768px){
+			.col-sm-12{width:calc(100% - 22px);}
+			/*占父元素宽的比例 不包括margin border padding*/
+			.col-sm-11{width:91.667%;}
+			.col-sm-10{width:83.333%;}
+			.col-sm-9{width:75%;}
+			.col-sm-8{width:calc(66.667% - 22px);}
+			
+			.col-sm-7{width:58.333%;}
+			.col-sm-6{width:calc(50% - 22px);}
+			.col-sm-5{width:41.667%;}
+			.col-sm-4{width:calc(33.332% - 22px);}
+			.col-sm-3{width:calc(25% - 22px);}
+			.col-sm-2{width:calc(16.667% - 22px);}
+			.col-sm-1{width:calc(8.333% - 22px);}
+		}
+		@media(min-width:767px){
+			.col-md-12{width:calc(100% - 22px)}
+			.col-md-11{width:91.667%;}
+			.col-md-10{width:83.333%;}
+			.col-md-9{width:75%;}
+			.col-md-8{width:calc(66.667% - 22px);}
+			.col-md-7{width:58.333%;}
+			.col-md-6{width:calc(50% - 22px);}
+			.col-md-5{width:41.667%;}
+			.col-md-4{width:calc(33.332% - 22px);}
+			.col-md-3{width:calc(25% - 22px);}
+			.col-md-2{width:calc(16.667% - 22px);}
+			.col-md-1{width:calc(8.333% - 22px);}
+		}
+	</style>
  </head>
  <body>
-  
+  <div class='grid-container'>
+		<div class='row'>
+			<div class='col-md-4 col-sm-6'><p>1-1</p></div>
+			<div class='col-md-4 col-sm-6'><p>1-2</p></div>
+			<div class='col-md-4 col-sm-12'><p>1-3</p></div>
+		</div>
+		<div class='row'>
+			<div class='col-md-3 col-sm-3'><p>2-1</p></div>
+			<div class='col-md-6 col-sm-6'><p>2-2</p></div>
+			<div class='col-md-3 col-sm-3'><p>2-3</p></div>
+		</div>
+		<div class='row'>
+			<div class='col-md-1 col-sm-2'><p>3-1</p></div>
+			<div class='col-md-1 col-sm-2'><p>3-2</p></div>
+			<div class='col-md-2 col-sm-8'><p>3-3</p></div>
+			<div class='col-md-2 col-sm-3'><p>3-4</p></div>
+			<div class='col-md-6 col-sm-3'><p>3-5</p></div>
+		</div>
+	</div>
  </body>
 </html>
