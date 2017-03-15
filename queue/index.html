@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+	<style>
+	.box{display:inline-block;width:200px;}
+		.number{
+			border:1px solid red;
+			background:red;
+			padding:10px;
+			width:20px;
+			height:20px;
+			text-align:center;
+			line-height:20px;
+			margin-top:5px;
+			color:#fff;
+			float:left;
+			margin-right:5px;
+		}
+	</style>
+ </head>
+ <body>
+	<div>
+		<input type="text">
+		<button class="leftIn">左侧入</button>
+		<button class='rightIn'>右侧入</button>
+		<button class='leftOut'>左侧出</button>
+		<button class='rightOut'>右侧出</button>
+	</div>
+	<div class="box">
+		<div class="number">10</div>
+		<div class="number">3</div>
+		<div class="number">7</div>
+		<div class="number">12</div>
+		<div class="number">11</div>
+		<div class="number">30</div>
+	</div>
+	<script>
+		var input=document.getElementsByTag('leftIn'),
+				leftIn=document.getElementsByClassName('leftIn'),
+				number=document.getElementsByClassName('number'),
+				leftOut=document.getElementsByClassName('leftOut');
+				(leftIn.onclick=function(){
+					console.log(number.innerHTML);
+				})();
+
+	</script>
+ </body>
+</html>
