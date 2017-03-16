@@ -22,19 +22,15 @@
 			border-radius:50%;
 			vertical-align:middle;
 		}
-		 input:checked + .radio_label:after{
-            content: "";
-            position: absolute;
-            width: 13px;
-            height: 13px;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            margin: auto;
-            background-color: red;
-            border-radius: 50%;
-        }
+		input:checked + .radio_label:after{
+      content: "";
+      position: absolute;
+      width: 13px;height: 13px;
+      top: 0;left: 0;bottom: 0;right: 0;
+      margin: auto;
+      background-color: red;
+      border-radius: 50%;
+    }
 		form .select_wrapper{margin-top: 20px;}
     #stu_select select{width: 200px;height: 30px;}
     #company input{width: 400px;height: 30px;}
@@ -79,18 +75,18 @@
 		var school=document.getElementById('stu_select'),
 				company=document.getElementById('company');
 		var dataSchool=[
-					[],
-					[{"name":'浙江大学',"value":101},
-					 {"name":'杭州传媒大学',"value":102}],
-					[{"name":'清华大学',"value":201},
-					 {"name":'北京大学',"value":202},
-					 {"name":'北京航空航天大学',"value":203}],
-					[{"name":'复旦大学',"value":301},
-					 {"name":'上海交通大学',"value":302}],
-					[{"name":'河南大学',"value":401},
-					 {"name":'郑州大学',"value":402},
-					 {"name":'河南工程学院',"value":403}]
-				];
+		  [],
+			[{"name":'浙江大学',"value":101},
+			 {"name":'杭州传媒大学',"value":102}],
+			[{"name":'清华大学',"value":201},
+			 {"name":'北京大学',"value":202},
+			 {"name":'北京航空航天大学',"value":203}],
+			[{"name":'复旦大学',"value":301},
+			 {"name":'上海交通大学',"value":302}],
+			[{"name":'河南大学',"value":401},
+			 {"name":'郑州大学',"value":402},
+			 {"name":'河南工程学院',"value":403}]
+		];
 		document.getElementById('stu_radio').addEventListener('click',function(){
 			console.log(company);
 			school.style.display='block';
