@@ -7,8 +7,36 @@
   <meta name="Keywords" content="">
   <meta name="Description" content="">
   <title>Document</title>
+	<style>
+		 *{padding: 0;margin: 0}
+		.wrapper{
+			display:flex;
+			justify-content:space-between;
+			align-items:center;
+		}
+		.wrapper .item{
+			width:150px;margin-top:20px;
+			padding:20px;box-sizing: border-box;}
+		.item1{height:120px;border:1px solid #f00;}
+		.item2{height:100px;border:1px solid #f00;}
+		.item3{height:40px;border:1px solid #f00;}
+		.item4{height:200px;border:1px solid #0f0;}
+		@media only screen and (max-width:640px){
+			.item4{order:1;}
+			.item1, .item2, .item3{order:2;}
+			.wrapper{
+				flex-wrap:wrap;
+				align-items:flex-start;
+			}
+		}
+	</style>
  </head>
  <body>
-  
+  <div class="wrapper">
+		<div class="item item1">1</div>
+		<div class="item item2">2</div>
+		<div class="item item3">3</div>
+		<div class="item item4">4</div>
+	</div>
  </body>
 </html>
