@@ -42,6 +42,9 @@
       width: 290px;
       text-indent: 10px;
 		}
+		input[class='value']{
+			color:red;		
+		}
 	</style>
  </head>
  <body>
@@ -72,36 +75,40 @@
 		</div>
 	</form>
 	<script>
-		var school=document.getElementById('stu_select'),
-				company=document.getElementById('company');
-		var dataSchool=[
-		  [],
-			[{"name":'浙江大学',"value":101},
-			 {"name":'杭州传媒大学',"value":102}],
-			[{"name":'清华大学',"value":201},
-			 {"name":'北京大学',"value":202},
-			 {"name":'北京航空航天大学',"value":203}],
-			[{"name":'复旦大学',"value":301},
-			 {"name":'上海交通大学',"value":302}],
-			[{"name":'河南大学',"value":401},
-			 {"name":'郑州大学',"value":402},
-			 {"name":'河南工程学院',"value":403}]
-		];
+	 var city=document.getElementById("city"),
+	     selSchool=document.querySelector("[name='university']"),
+		   school=document.getElementById('stu_select'),
+				company=document.getElementById('company'),
+				opts=document.getElementsByTagName("option")[0],
+				input=document.getElementsByTagName('input')[2],
+		    dataSchool=[
+					[],
+					[{"name":'浙江大学',"value":101},
+					 {"name":'杭州传媒大学',"value":102}],
+					[{"name":'清华大学',"value":201},
+					 {"name":'北京大学',"value":202},
+					 {"name":'北京航空航天大学',"value":203}],
+					[{"name":'复旦大学',"value":301},
+					 {"name":'上海交通大学',"value":302}],
+					[{"name":'河南大学',"value":401},
+					 {"name":'郑州大学',"value":402},
+					 {"name":'河南工程学院',"value":403}]
+				];
 		document.getElementById('stu_radio').addEventListener('click',function(){
-			console.log(company);
 			school.style.display='block';
 			company.style.display='none';
+			input.value='';			
 		})
 		document.getElementById('no_company').addEventListener('click',function(){
-			 console.log(company);
+			city.selectedIndex=opts;
 			 school.style.display='none';
 			 company.style.display='block';
+			 selSchool.style.display='none';
 		})
-		document.getElementById('city').addEventListener('change',function(){
-			var i=city.selectedIndex;
+		city.addEventListener('change',function(){
+			var i=city.selectedIndex;//获得选择学校的下标
 			var datas=dataSchool[i];
-			console.log(datas);
-			var selSchool=document.querySelector("[name='university']");
+			 selSchool.style.display='inline-block';
 			if(datas.length==0){selSchool.className='hide';}
 			else{
 				selSchool.length=0;
