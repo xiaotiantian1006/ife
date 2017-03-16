@@ -7,8 +7,119 @@
   <meta name="Keywords" content="">
   <meta name="Description" content="">
   <title>Document</title>
+	<style>
+		form{
+			width:700px;height:auto;
+			font-size:24px;
+			margin:30px auto;}
+		form span {
+			margin-left:100px;}
+		form .radio_label{
+			display:inline-block;
+			position:relative;
+			width:20px;height:20px;
+			border:1px solid gray;
+			border-radius:50%;
+			vertical-align:middle;
+		}
+		 input:checked + .radio_label:after{
+            content: "";
+            position: absolute;
+            width: 13px;
+            height: 13px;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            background-color: red;
+            border-radius: 50%;
+        }
+		form .select_wrapper{margin-top: 20px;}
+    #stu_select select{width: 200px;height: 30px;}
+    #company input{width: 400px;height: 30px;}
+		.hide{display:none;}
+		input.value{
+			margin-left:5px;
+			border-radius: 5px;
+      height: 30px;
+      width: 290px;
+      text-indent: 10px;
+		}
+	</style>
  </head>
  <body>
-  <p>dddddd</p>
+  <form action="">
+		<span>
+			<input type="radio" id="stu_radio" name='radio' value='' style="display: none">在校生
+			<label for="stu_radio" class="radio_label"></label>
+		</span>
+		<span>			
+			<input type="radio" id="no_company" name='radio' value='' style="display: none">非在校生
+			<label for="no_company" class="radio_label"></label>
+		</span>
+		<div class='select_wrapper'>
+			<div id='stu_select' class='hide'>学校
+				<select name="city" id='city'>
+					<option>请选择</option>
+					<option>杭州</option>
+					<option>北京</option>
+					<option>上海</option>
+					<option>河南</option>
+				</select>
+				<select name="university" class='hide'>
+				</select>
+			</div>
+			<div id='company' class='hide'>
+				<label>就业单位<input type="text" class='value'></label>
+			</div>
+		</div>
+	</form>
+	<script>
+		var school=document.getElementById('stu_select'),
+				company=document.getElementById('company');
+		var dataSchool=[
+					[],
+					[{"name":'浙江大学',"value":101},
+					 {"name":'杭州传媒大学',"value":102}],
+					[{"name":'清华大学',"value":201},
+					 {"name":'北京大学',"value":202},
+					 {"name":'北京航空航天大学',"value":203}],
+					[{"name":'复旦大学',"value":301},
+					 {"name":'上海交通大学',"value":302}],
+					[{"name":'河南大学',"value":401},
+					 {"name":'郑州大学',"value":402},
+					 {"name":'河南工程学院',"value":403}]
+				];
+		document.getElementById('stu_radio').addEventListener('click',function(){
+			console.log(company);
+			school.style.display='block';
+			company.style.display='none';
+		})
+		document.getElementById('no_company').addEventListener('click',function(){
+			 console.log(company);
+			 school.style.display='none';
+			 company.style.display='block';
+		})
+		document.getElementById('city').addEventListener('change',function(){
+			var i=city.selectedIndex;
+			var datas=dataSchool[i];
+			console.log(datas);
+			var selSchool=document.querySelector("[name='university']");
+			if(datas.length==0){selSchool.className='hide';}
+			else{
+				selSchool.length=0;
+				var frag=document.createDocumentFragment();
+				var opt=new Option('请选择');
+				frag.appendChild(opt);
+				for(var i=0;i<datas.length;i++){
+					var opt=new Option(datas[i].name,datas[i].value);
+					frag.appendChild(opt);
+				}
+				selSchool.appendChild(frag);
+				selSchool.className='';
+			}
+		})
+	</script>
  </body>
 </html>
