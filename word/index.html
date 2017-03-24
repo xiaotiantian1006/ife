@@ -153,7 +153,8 @@
 			float:left;
 			width:66%;
 			height:100%;
-			background:url(images/task_1_7_1_21.png)no-repeat}
+			background-image:url(images/task_1_7_1_21.png);
+			background-repeat: no-repeat;}
 		.section-6 .right{
 			position:relative;
 			float:right;
@@ -161,7 +162,9 @@
 			height:565px;
 			overflow:hidden;}
 		.section-6 .right ul{
-			width: 302%;}
+			position: relative;
+			top: 164px;
+			width: 300%;}
 		.section-6 .right ul li{
 			float: left;
 			width: 33%;}
@@ -306,5 +309,49 @@
 		</div>
 	</div>
 	<footer></footer>
+	<script src='js/jquery-1.11.3.js'></script>
+	<script>
+	$(document).ready(function(){
+
+
+	//第6部分的轮播图
+	(function(){
+		var aUl=$('.section-6').find('ul');
+		var aUlLi=aUl.find('li');
+		console.log(aUlLi);
+		var aOl=$('.section-6').find('ol');
+		var aOlLi=aOl.find('li');
+		var iNow=0;
+		var timer=null;
+
+		autoPlay();
+
+		aOlLi.hover(function(){
+			clearInterval(timer);
+			iNow=$(this).index();
+			var left= -iNow*aUl.width()/3;
+			toMove(left);
+		},function(){
+			autoPlay();
+		});
+
+		function autoPlay(){
+			timer=setInterval(function(){
+				iNow++;
+				iNow %= 3;
+				var left= -iNow*aUl.width()/3;
+				toMove(left);
+			},2000);
+		}
+
+		function toMove(left){
+			aUl.stop().animate({left:left},700);
+			aOlLi.removeClass('native');
+			aOlLi.eq(iNow).addClass('native');
+		}
+	})();
+});
+
+	</script>
  </body>
 </html>
